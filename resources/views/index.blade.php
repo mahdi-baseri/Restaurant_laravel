@@ -23,7 +23,6 @@
     <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
     <!-- Template Main CSS File -->
     <link href="/css/style.css" rel="stylesheet">
 
@@ -55,15 +54,17 @@
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center" dir="rtl">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-        <h1 class="logo me-auto me-lg-0"><a href="index.html">{{setting('site.title')}}</a></h1>
+        <h1 class="logo">
+            <a href="/" class=" text-right">{{setting('site.title')}}</a>
+        </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="/img/logo.png" alt="" class="img-fluid"></a>-->
 
-        <nav id="navbar" class="navbar order-last order-lg-0 " dir="rtl">
+        <nav id="navbar" class="navbar" dir="rtl">
             {{menu('main' , 'menu_style')}}
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i class="bi bi-list mobile-nav-toggle float-start"></i>
         </nav><!-- .navbar -->
         <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex"><b>رزرو میز</b></a>
 
@@ -655,7 +656,7 @@
                 @foreach($chef as $chef_item)
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <img src="storage/{{$chef_item->img}}" height="416"  class="img-fluid rounded-3" alt="">
+                            <img src="storage/{{$chef_item->img}}" class="img-fluid rounded-3 w-100" alt="" style="height: 416px">
                             <div class="member-info">
                                 <div class="member-info-content">
                                     <h4>{{$chef_item->name}}</h4>
@@ -741,7 +742,7 @@
     </section><!-- End Chefs Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact" dir="rtl">
+    <section id="contact" class="contact pb-3" dir="rtl">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -749,12 +750,12 @@
                 <p>ارتباط با ما</p>
             </div>
         </div>
-
+        {{--Google Map--}}
         <div data-aos="fade-up">
-            <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.92925795774!2d51.45253651562243!3d35.80166998016657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e05b9213a0ef5%3A0xeb00fed564218403!2sTehran%20Province%2C%20Tehran%2C%20Andarzgoo%20Blvd%2C%20Iran!5e0!3m2!1sen!2s!4v1637914977788!5m2!1sen!2s" frameborder="0" allowfullscreen></iframe>
+            <?php echo setting('site.map')?>
         </div>
-
-
+        {{-- Contact Elements --}}
+        <!--
         <div class="container" data-aos="fade-up">
 
             <div class="row mt-5">
@@ -821,7 +822,7 @@
 
             </div>
 
-        </div>
+        </div>-->
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
@@ -841,11 +842,19 @@
                             <strong>ایمیل : </strong><a href="mailto:{{setting('site.email')}}">{{setting('site.email')}}</a><br>
                         </p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="https://instagram.com/baseri.web/" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                @if(setting('social-network.twitter')!== null)
+                                    <a href="https://twitter.com/{{setting('social-network.twitter')}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                @endif
+                                @if(setting('social-network.facebook')!== null)
+                                    <a href="https://facebook.com/{{setting('social-network.facebook')}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                @endif
+                                @if(setting('social-network.instagram')!== null)
+                                    <a href="https://instagram.com/{{setting('social-network.instagram')}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                @endif
+                                @if(setting('social-network.linkedin')!== null)
+                                    <a href="https://linkedin.com/{{setting('social-network.linkedin')}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                @endif
+
                         </div>
                     </div>
                 </div>

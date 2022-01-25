@@ -16,7 +16,7 @@ class BookController extends BaseDimmer
     {
 //        $count = Product::all()->count();
 //        $string = trans_choice('voyager::dimmer.post', $count);
-        $book = Book::all();
+        $book = Book::orderBy('id' , 'DESC')->get();
         return view('welcome', compact('book'));
 //            'icon'   => $book,
 //            'title'  => "{$count} {$string}",
