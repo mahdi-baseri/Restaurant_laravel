@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Aboutimage;
+use App\AboutText;
 use App\Book;
 use App\Chef;
+use App\Event;
 use App\Product;
 use App\Special;
 use App\Whyu;
@@ -21,7 +23,18 @@ class HomeController extends Controller
         $specials = Special::all();
         $whyus = Whyu::all();
         $images = Aboutimage::first();
-        return view('index' , compact('category','product' , 'chef' , 'specials' , 'whyus' , 'images'));
+        $events = Event::all();
+        $about = AboutText::first();
+        return view('index' , compact(
+            'category',
+            'product',
+            'chef',
+            'specials',
+            'whyus',
+            'images',
+            'events',
+            'about'
+        ));
     }
 
     public function store(Request $request)

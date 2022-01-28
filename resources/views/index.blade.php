@@ -101,26 +101,11 @@
             <div class="row">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="about-img">
-                        <img src="/img/about.jpg" alt="">
+                        <img src="storage/{{$about->image}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                    <h3>رستوران</h3>
-                    <p class="fst-italic">
-                        رستوران ما از سال 1390 تا الان مشغول به کار میباشد.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check-circle"></i> با بیش از 10 شعبه در سراسر کشور.</li>
-                        <li><i class="bi bi-check-circle"></i>10 سال سابقه.</li>
-                        <li><i class="bi bi-check-circle"></i>دارای لوح بهترین رستوران از وزارت بهداشت.</li>
-
-                    </ul>
-
-                    <p>
-
-
-                        رستوران ما در یک محیط بسیار جذاب و دنج قرار دارد که بهترین غذاهای سنتی و فست فود را برای مشتریان خود فراهم می کند. <br> کیفیت و تنوع غذایی رستوران ما بسیار زیاد است که برای هر ذائقه ای مناسب می باشد.
-                    </p>
+                   {!! $about->text !!}
                 </div>
             </div>
         </div>
@@ -141,7 +126,7 @@
                         <div class="box" data-aos="zoom-in" data-aos-delay="100">
                             <span>0{{$whyus_item->id}}</span>
                             <h4>{{$whyus_item->title}}</h4>
-                            <?php echo $whyus_item->body ?>
+                            {!! $whyus_item->body !!}
                         </div>
                     </div>
                 @endforeach
@@ -215,7 +200,7 @@
                                 <div class="row">
                                     <div class="col-lg-8 details order-2 order-lg-1">
                                         <h3>{{$specials_item->name}}</h3>
-                                        <?php echo ($specials_item->body)?>
+                                        {!! $specials_item->body !!}
                                     </div>
                                     <div class="col-lg-4 text-center order-1 order-lg-2">
                                         <img src="storage/{{$specials_item->img}}" alt="" class="img-fluid my-2 rounded-circle">
@@ -231,97 +216,35 @@
     </section><!-- End Specials Section -->
 
     <!-- ======= Events Section ======= -->
-    <section id="events" class="events">
+    <section id="events" class="events" dir="rtl">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Events</h2>
-                <p>Organize Your Events in our Restaurant</p>
+                <h2>پیشنهادها</h2>
+                <p>رویدادهای خود را در رستوران ما سازماندهی کنید</p>
             </div>
 
             <div class="events-slider swiper" data-aos="fade-up" data-aos-delay="100">
+
                 <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
+                @foreach($events as $events_item)
+                    <div class="swiper-slide" dir="rtl">
                         <div class="row event-item">
                             <div class="col-lg-6">
-                                <img src="/img/event-birthday.jpg" class="img-fluid" alt="">
+                                <img src="storage/{{$events_item->image}}" class="img-fluid" alt="">
                             </div>
                             <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Birthday Parties</h3>
+                                <h3>{{$events_item->title}}</h3>
                                 <div class="price">
-                                    <p><span>$189</span></p>
+                                    <p><span>${{$events_item->cost}}</span></p>
                                 </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
+                                {!! $events_item->body !!}
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div>
 
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="/img/event-private.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Private Parties</h3>
-                                <div class="price">
-                                    <p><span>$290</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="/img/event-custom.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Custom Parties</h3>
-                                <div class="price">
-                                    <p><span>$99</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
+                @endforeach
 
                 </div>
                 <div class="swiper-pagination"></div>
@@ -383,7 +306,7 @@
         </div>
     </section><!-- End Book A Table Section -->
 
-    <!-- ======= Testimonials Section ======= -->
+    <!-- ======= Comments Section ======= -->
     <section id="testimonials" class="testimonials section-bg" dir="rtl">
         <div class="container" data-aos="fade-up">
 

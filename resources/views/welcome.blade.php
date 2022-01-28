@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="">
-    <h1 class="mb-5">Table Reservations</h1>
+    <h1 class="mb-5">{{__('voyager::generic.table-res')}}</h1>
         <table id="dataTable" class="table table-hover dataTable no-footer" role="grid" aria-describedby="dataTable_info">
         @foreach($book as $book_item)
                 <thead>
@@ -29,14 +29,14 @@
                     <th class="dt-not-orderable sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 42.5156px;">
                         <input type="checkbox" class="select_all">
                     </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 84.4375px;">Name</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Phone: activate to sort column ascending" style="width: 84.4375px;">Phone</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 84.4375px;">Date</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Time: activate to sort column ascending" style="width: 84.4375px;">Time</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Count: activate to sort column ascending" style="width: 84.4375px;">Count</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Messagte: activate to sort column ascending" style="width: 84.4375px;">Messagte</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 84.4375px;">{{__('voyager::generic.name')}}</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Phone: activate to sort column ascending" style="width: 84.4375px;">{{__('voyager::generic.phone')}}</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 84.4375px;">{{__('voyager::generic.date')}}</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Time: activate to sort column ascending" style="width: 84.4375px;">{{__('voyager::generic.time')}}</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Count: activate to sort column ascending" style="width: 84.4375px;">{{__('voyager::generic.count')}}</th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Messagte: activate to sort column ascending" style="width: 84.4375px;">{{__('voyager::generic.message')}}</th>
 
-                    <th class="actions text-right dt-not-orderable sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 315.344px;">Actions</th></tr>
+                    <th class="actions text-right dt-not-orderable sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 315.344px;">{{__('voyager::generic.actions')}}</th></tr>
                 </thead>
                 <tbody>
 
@@ -53,7 +53,7 @@
 
                     <td class="no-sort no-click bread-actions">
                         <a href="/delete/{{$book_item->id}}" title="Delete" class="btn btn-sm btn-danger pull-right delete" data-id="1" id="delete-1">
-                            <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">Delete</span>
+                            <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">{{__('voyager::generic.delete')}}</span>
                         </a>
                     </td>
                 </tr></tbody>
