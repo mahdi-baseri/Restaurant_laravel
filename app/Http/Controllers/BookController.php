@@ -41,8 +41,8 @@ class BookController extends BaseDimmer
      *
      * @return bool
      */
-    public function shouldBeDisplayed()
-    {
-        return Auth::user()->can('browse', Voyager::model('Post'));
-    }
+//    public function shouldBeDisplayed()
+//    {
+//        return Auth::user()->can('browse', Voyager::model('Post'));
+//    }
 }
