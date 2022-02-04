@@ -17,6 +17,11 @@ body {
   background: #0c0b09;
   color: #fff;
 }
+@media only screen and (max-width: 600px){
+    body{
+        text-align: center;
+    }
+}
 
 a {
   color: #cda45e;
@@ -429,12 +434,33 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 98px;
   }
 }
+@media screen and (max-width: 600px) {
+    #hero h1 {
+        text-align: center !important;
+    }
+    #hero h2 {
+        text-align: center !important;
+    }
+    #hero .btns {
+        text-align: center !important;
+    }
+}
+@media screen and (min-width: 600px) {
+    #hero h1 {
+        text-align: right !important;
+    }
+    #hero h2 {
+        text-align: right !important;
+    }
+    #hero .btns {
+        text-align: right !important;
+    }
+}
 #hero h1 {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  text-align: right !important;
   color: #fff;
   font-family: "Poppins", sans-serif;
 }
@@ -443,13 +469,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero h2 {
   color: #eee;
-  margin-bottom: 10px 0 0 0;
+  margin-bottom: 10px;
   font-size: 22px;
-  text-align: right !important;
 }
 #hero .btns {
   margin-top: 30px;
-  text-align: right !important;
 }
 #hero .btn-menu, #hero .btn-book {
   font-weight: 600;
@@ -1184,6 +1208,18 @@ section {
 /*--------------------------------------------------------------
 # Gallery
 --------------------------------------------------------------*/
+#res-gallery{
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    #gallery{
+        display: none;
+    }
+    #res-gallery{
+        display: block;
+    }
+}
+
 .gallery .gallery-item {
   overflow: hidden;
   border-right: 3px solid #454035;
@@ -1199,6 +1235,17 @@ section {
 /*--------------------------------------------------------------
 # Chefs
 --------------------------------------------------------------*/
+#res-chefs{
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    #chefs{
+        display: none;
+    }
+    #res-chefs{
+        display: block;
+    }
+}
 .chefs .member {
   text-align: center;
   margin-bottom: 20px;
@@ -1412,6 +1459,11 @@ section {
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+    #footer li{
+        justify-content: center;
+    }
 }
 #footer .footer-top {
   background: #0c0b09;

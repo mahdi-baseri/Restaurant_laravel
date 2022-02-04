@@ -38,10 +38,10 @@
     </head>
     <body class="">
     <?php include "jdf/jdf.php"; ?>
-    <h1 class="mb-5">{{__('voyager::generic.table-res')}}</h1>
+    <h1 style="text-shadow: 1px 1px 5px {{e(config('voyager.primary_color','#22A7F0'))}} ; color: black">{{__('voyager::generic.table-res')}}</h1>
 {{--        <table id="dataTable" class="table table-hover dataTable no-footer" role="grid" aria-describedby="dataTable_info">--}}
     <div class="row" style="padding: 0 10px" @if(app()->getLocale()=='fa') dir="rtl" @endif>
-        @foreach($book as $book_item)
+        @foreach($book as $key => $book_item)
 {{--                <thead>--}}
 {{--                <tr role="row">--}}
 {{--                    <th class="dt-not-orderable sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 42.5156px;">--}}
@@ -74,31 +74,37 @@
 {{--                            <i class="voyager-trash"></i> <span class="hidden-xs hidden-sm">{{__('voyager::generic.delete')}}</span>--}}
 {{--                        </a>--}}
 {{--                    </td>--}}
+{{--            list($year , $month , $day) = explode('-' , $arr_date[0]);--}}
+{{--            list($hour, $minute) = explode(':', $arr_time[0]);--}}
+{{--            $timestamp = mktime($hour , $minute, 0 ,$month, $day, $year );--}}
 {{--                </tr></tbody>--}}
-            @php
+            <?php
                 $date = $book_item->date;
                 $time = $book_item->time;
-                $arr_date = explode(' ' , $date);
-                $arr_time = explode(' ' , $time);
-                list($year , $month , $day) = explode('-' , $arr_date[0]);
-                list($hour, $minute) = explode(':', $arr_time[0]);
-                $timestamp = mktime($hour , $minute, 0 ,$month, $day, $year );
-            @endphp
-        <div class="col-md-3 col-lg-2" style="padding: 5px;height: max-content !important;">
+                $timearray = explode(':' , $time);
+                $array = explode('/' , $date);
+                $year = $array[0];
+                $month = $array[1];
+                $day = $array[2];
+                $hour = $timearray[0];
+                $minute = $timearray[1];
+//                $timestamp = jmktime(10 , 25 , 12 , 11 , 5 , 1400 );
+                $gregorian = jalali_to_gregorian($year, $month , $day , '/');
+            ?>
+        <div class="col-md-3 col-lg-2" style="padding: 5px;min-height:max-content !important;">
             <div class="card offset-md-3" style="margin: 5px; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.22); border-radius: 10px;">
                 <div class="" style="padding: 7px;display: flex; justify-content: space-between; align-items: center;border-bottom: 1px solid rgba(0,0,0,0.17)">
                     <div>
-                        <h4 style="margin: 0; color: black"><strong>{{__('voyager::generic.order')}} #{{$book_item->id}}</strong></h4>
-                        @if(app()->getLocale()=='fa')
-                            <small > {{jdate("H:i" , $timestamp)}}
-                                 , {{jdate("Y/m/d" , $timestamp)}}</small>
+                        <h4 style="margin: 0 0 3px 0; color: black"><strong>{{__('voyager::generic.order')}} #{{$book_item->id}}</strong></h4>
+                        @if(app()->getLocale()=='en')
+                            <small>{{$gregorian}}</small>
                         @else
                         <small>{{$book_item->date}} , {{$book_item->time}}</small>
                         @endif
 
                     </div>
                     <div>
-                        <img src="storage/avatar{{rand(1,3)}}.gif" alt="" width="50" height="50"  style="border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.4)">
+                        <img src="storage/avatars/avatar{{$key+1}}.gif" alt="" width="50" height="50"  style="border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.4)">
                     </div>
                 </div>
                 <div class="card-body" style="padding: 7px; color: black">
@@ -106,13 +112,13 @@
 {{--                               <i class="fa fa-user-circle" style="color: #b6b3b3" aria-hidden="true"></i>--}}
                         <div style="display: flex;justify-content: space-between">
                             <h4>{{__('voyager::generic.name')}} : <small>{{$book_item->name}}</small> </h4>
-                            <h4>{{__('voyager::generic.count')}} : <small>{{$book_item->people}}</small> </h4>
+                            <h4 style="margin-right: 10px; margin-left: 10px">{{__('voyager::generic.count')}} : <small>{{$book_item->people}}</small> </h4>
                         </div>
 
                         @if(isset($book_item->message))
                             <h4>{{__('voyager::generic.message')}} : <small>{{$book_item->message}}</small></h4>
                         @endif
-                        <div style="display: flex;justify-content: space-between;align-items: center">
+                        <div style="display: flex;justify-content: space-between;align-items: center; margin-top: 7px;">
                             <h4>{{__('voyager::generic.phone')}} : <a href="tel:{{$book_item->phone}}" id="phone-link"><small>{{$book_item->phone}}</small></a></h4>
                             <a href="/delete/{{$book_item->id}}" title="Delete" class="btn btn-sm pull-right delete" data-id="1" id="delete-1">
                                 <i class="voyager-x"></i>

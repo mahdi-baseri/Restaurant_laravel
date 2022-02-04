@@ -385,11 +385,12 @@
 .datepicker-container.pwt-mobile-view .datepicker-plot-area {
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
+    /*height: 100%;*/
+    top: 10%;
     left: 0;
     right: 0;
-    bottom: 0; }
+    /*bottom: 0;*/
+}
 .datepicker-container.pwt-mobile-view .datepicker-plot-area .table-days td,
 .datepicker-container.pwt-mobile-view .datepicker-plot-area .table-days td span {
     height: 44px;

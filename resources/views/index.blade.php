@@ -81,7 +81,7 @@
                             }
                         },
                         "submitButton": {
-                            "enabled": false,
+                            "enabled": true,
                             "text": {
                                 "fa": "تایید",
                                 "en": "Submit"
@@ -170,7 +170,7 @@
                             "format": "MMMM"
                         },
                         "todayButton": {
-                            "enabled": true,
+                            "enabled": false,
                             "text": {
                                 "fa": "امروز",
                                 "en": "Today"
@@ -323,10 +323,10 @@
             </div>
 
             <div class="row">
-                @foreach($whyus as $whyus_item)
-                    <div class="col-lg-4">
+                @foreach($whyus as $key => $whyus_item)
+                    <div class="col-lg-4 py-2">
                         <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                            <span>0{{$whyus_item->id}}</span>
+                            <span>0{{$key+1}}</span>
                             <h4>{{$whyus_item->title}}</h4>
                             {!! $whyus_item->body !!}
                         </div>
@@ -384,10 +384,9 @@
                 <h2>ویژه ها</h2>
                 <p>ویژه های ما را بررسی کنید</p>
             </div>
-
             <div class="row" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-3">
-                    <ul class="nav nav-tabs flex-column">
+                    <ul class="nav nav-tabs flex-column p-0">
                         @foreach($specials as $specials_item)
                             <li class="nav-item">
                                 <a class="nav-link @if($specials_item->id == 1) active @endif show" data-bs-toggle="tab" href="#tab-item-{{$specials_item->id}}">{{$specials_item->name}}</a>
@@ -472,19 +471,19 @@
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-6 col-md-6 form-group mt-3 mt-md-0">
-                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="شماره همراه" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
+                        <input type="tel" class="form-control" name="phone" id="phone"  maxlength="11" placeholder="شماره همراه" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 form-group mt-3">
-                        <input type="text" name="date" class="form-control datepicker" id="date" placeholder="تاریخ" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
+                        <input type="text" name="date" class="form-control datepicker" id="date" autocomplete="off" placeholder="تاریخ" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 form-group mt-3">
-                        <input type="text" class="form-control timepicker" name="time" id="time" placeholder="ساعت" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
+                        <input type="text" class="form-control timepicker" name="time" id="time" autocomplete="off" placeholder="ساعت" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 form-group mt-3">
-                        <input type="number" class="form-control" name="people" id="people" placeholder="تعداد افراد" data-rule="minlen:1" data-msg="Please enter at least 1 chars" required>
+                        <input type="number" class="form-control" name="people" id="people" maxlength="10" placeholder="تعداد افراد" data-msg="Please enter at least 1 chars" required>
                         <div class="validate"></div>
                     </div>
                 </div>
@@ -618,66 +617,50 @@
                         </div>
                     </div>
                 @endforeach
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-2.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-2.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-3.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-4.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-5.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-5.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-6.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-6.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-7.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-7.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 col-md-4">--}}
-{{--                    <div class="gallery-item">--}}
-{{--                        <a href="/img/gallery/gallery-8.jpg" class="gallery-lightbox" data-gall="gallery-item">--}}
-{{--                            <img src="/img/gallery/gallery-8.jpg" alt="" class="img-fluid">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
             </div>
 
         </div>
     </section><!-- End Gallery Section -->
+    <section id="res-gallery"  class="gallery" dir="rtl">
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>گالری</h2>
+                <p>تصاویر رستوران ما</p>
+            </div>
+        </div>
+
+        <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row g-0">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach(json_decode($images->images) as $key => $picture)
+                            <div class="carousel-item {{$key==0 ? 'active' : ''}}"  data-bs-interval="2000">
+                                <div class="col-lg-3 col-md-4">
+                                    <div class="gallery-item">
+                                        <a href="storage/{{$picture}}" class="gallery-lightbox" data-gall="gallery-item">
+                                            <img src="storage/{{$picture}}" alt="" height="260" class="img-fluid w-100">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    {{--                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">--}}
+                    {{--                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+                    {{--                        <span class="visually-hidden">Previous</span>--}}
+                    {{--                    </button>--}}
+                    {{--                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">--}}
+                    {{--                        <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+                    {{--                        <span class="visually-hidden">Next</span>--}}
+                    {{--                    </button>--}}
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End res Gallery Section -->
+
 
     <!-- ======= Chefs Section ======= -->
     <section id="chefs" class="chefs" dir="rtl">
@@ -722,7 +705,69 @@
             </div>
 
         </div>
-    </section><!-- End Chefs Section -->
+    </section>
+    <section id="res-chefs" class="chefs" dir="rtl">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>آشپزها</h2>
+                <p>سرآشپزهای حرفه ای ما</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {{--                                <div class="carousel-item active">--}}
+                            {{--                                    <img src="..." class="d-block w-100" alt="...">--}}
+                            {{--                                </div>--}}
+                            @foreach($chef as $key => $chef_item)
+                                <div class="carousel-item {{$key == 0 ? 'active' : ''}}" data-bs-interval="2200">
+                                    <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                        <img src="storage/{{$chef_item->img}}" class="img-fluid rounded-3 w-100" alt="" style="height: 416px">
+                                        <div class="member-info">
+                                            <div class="member-info-content">
+                                                <h4>{{$chef_item->name}}</h4>
+                                                <span>{{$chef_item->major}}</span>
+                                            </div>
+                                            <div class="social">
+                                                @if(isset($chef_item->twitter))
+                                                    <a href="https://www.twitter.com/{{$chef_item->twitter}}"><i class="bi bi-twitter"></i></a>
+                                                @endif
+                                                @if(isset($chef_item->facebook))
+                                                    <a href="https://www.facebook.com/{{$chef_item->facebook}}"><i class="bi bi-facebook"></i></a>
+                                                @endif
+                                                @if(isset($chef_item->instagram))
+                                                    <a href="https://www.instagram.com/{{$chef_item->instagram}}"><i class="bi bi-instagram"></i></a>
+                                                @endif
+                                                @if(isset($chef_item->linkedin))
+                                                    <a href="https://www.linkedin.com/{{$chef_item->linkedin}}"><i class="bi bi-linkedin"></i></a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+{{--                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">--}}
+{{--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+{{--                            <span class="visually-hidden">Previous</span>--}}
+{{--                        </button>--}}
+{{--                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">--}}
+{{--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+{{--                            <span class="visually-hidden">Next</span>--}}
+{{--                        </button>--}}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- End Chefs Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact pb-3" dir="rtl">
@@ -842,12 +887,12 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-6 footer-links">
+                <div class="col-lg-2 col-md-6 col-6 footer-links">
                     <h4>لینک های مفید</h4>
                     {{menu('useful','footer_menu')}}
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-links">
+                <div class="col-lg-3 col-md-6 col-6 footer-links">
                     <h4>سیرویس های ما</h4>
                     {{menu('servies' , 'footer_menu')}}
                 </div>
