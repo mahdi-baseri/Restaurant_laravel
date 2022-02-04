@@ -23,6 +23,208 @@
     <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="css/persian-datepicker.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
+    <script src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.datepicker').persianDatepicker(
+                {
+                    "inline": false,
+                    "format": "YYYY/MM/DD",
+                    "viewMode": "day",
+                    "initialValue": false,
+                    // "minDate": 1643674596963,
+                    // "maxDate": 1644624996964,
+                    "autoClose": true,
+                    "position": "auto",
+                    "altFormat": "lll",
+                    "altField": "#altfieldExample",
+                    "onlyTimePicker": false,
+                    "onlySelectOnDate": false,
+                    "calendarType": "persian",
+                    "inputDelay": "800",
+                    "observer": true,
+                    "calendar": {
+                        "persian": {
+                            "locale": "fa",
+                            "showHint": true,
+                            "leapYearMode": "algorithmic"
+                        },
+                        "gregorian": {
+                            "locale": "en",
+                            "showHint": true
+                        }
+                    },
+                    "navigator": {
+                        "enabled": true,
+                        "scroll": {
+                            "enabled": true
+                        },
+                        "text": {
+                            "btnNextText": "<",
+                            "btnPrevText": ">"
+                        }
+                    },
+                    "toolbox": {
+                        "enabled": true,
+                        "calendarSwitch": {
+                            "enabled": false,
+                            "format": "MMMM"
+                        },
+                        "todayButton": {
+                            "enabled": true,
+                            "text": {
+                                "fa": "امروز",
+                                "en": "Today"
+                            }
+                        },
+                        "submitButton": {
+                            "enabled": false,
+                            "text": {
+                                "fa": "تایید",
+                                "en": "Submit"
+                            }
+                        },
+                        "text": {
+                            "btnToday": "امروز"
+                        }
+                    },
+                    "timePicker": {
+                        "enabled": false,
+                        "step": "1",
+                        "hour": {
+                            "enabled": false,
+                            "step": null
+                        },
+                        "minute": {
+                            "enabled": false,
+                            "step": null
+                        },
+                        "second": {
+                            "enabled": false,
+                            "step": null
+                        },
+                        "meridian": {
+                            "enabled": false
+                        }
+                    },
+                    "dayPicker": {
+                        "enabled": true,
+                        "titleFormat": "YYYY MMMM"
+                    },
+                    "monthPicker": {
+                        "enabled": true,
+                        "titleFormat": "YYYY"
+                    },
+                    "yearPicker": {
+                        "enabled": true,
+                        "titleFormat": "YYYY"
+                    },
+                    "responsive": true
+                }
+            );
+            $('.timepicker').persianDatepicker(
+                {
+                    "inline": false,
+                    "format": "mm : HH",
+                    "viewMode": "day",
+                    "initialValue": false,
+                    "minDate": null,
+                    "maxDate": null,
+                    "autoClose": true,
+                    "position": "auto",
+                    "altFormat": "HH : mm",
+                    "altField": "#altfieldExample",
+                    "onlyTimePicker": false,
+                    "onlySelectOnDate": false,
+                    "calendarType": "persian",
+                    "inputDelay": "800",
+                    "observer": true,
+                    "calendar": {
+                        "persian": {
+                            "locale": "fa",
+                            "showHint": true,
+                            "leapYearMode": "algorithmic"
+                        },
+                        "gregorian": {
+                            "locale": "en",
+                            "showHint": true
+                        }
+                    },
+                    "navigator": {
+                        "enabled": false,
+                        "scroll": {
+                            "enabled": true
+                        },
+                        "text": {
+                            "btnNextText": "<",
+                            "btnPrevText": ">"
+                        }
+                    },
+                    "toolbox": {
+                        "enabled": true,
+                        "calendarSwitch": {
+                            "enabled": false,
+                            "format": "MMMM"
+                        },
+                        "todayButton": {
+                            "enabled": true,
+                            "text": {
+                                "fa": "امروز",
+                                "en": "Today"
+                            }
+                        },
+                        "submitButton": {
+                            "enabled": true,
+                            "text": {
+                                "fa": "تایید",
+                                "en": "Submit"
+                            }
+                        },
+                        "text": {
+                            "btnToday": "امروز"
+                        }
+                    },
+                    "timePicker": {
+                        "enabled": true,
+                        "step": "1",
+                        "hour": {
+                            "enabled": true,
+                            "step": null
+                        },
+                        "minute": {
+                            "enabled": true,
+                            "step": null
+                        },
+                        "second": {
+                            "enabled": false,
+                            "step": null
+                        },
+                        "meridian": {
+                            "enabled": false
+                        }
+                    },
+                    "dayPicker": {
+                        "enabled": false,
+                        "titleFormat": "YYYY MMMM"
+                    },
+                    "monthPicker": {
+                        "enabled": false,
+                        "titleFormat": "YYYY"
+                    },
+                    "yearPicker": {
+                        "enabled": false,
+                        "titleFormat": "YYYY"
+                    },
+                    "responsive": true
+                }
+            )
+        });
+    </script>
+
+
     <!-- Template Main CSS File -->
     <link href="/css/style.css" rel="stylesheet">
 
@@ -262,7 +464,6 @@
                 <h2>رزرو</h2>
                 <p>رزرو میز</p>
             </div>
-
             <form action="{{url('/book')}}" method="post" class="form-custom-css" data-aos="fade-up">
                 @csrf
                 <div class="row">
@@ -275,11 +476,11 @@
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 form-group mt-3">
-                        <input type="date" name="date" class="form-control" id="date" placeholder="تاریخ" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
+                        <input type="text" name="date" class="form-control datepicker" id="date" placeholder="تاریخ" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 form-group mt-3">
-                        <input type="time" class="form-control" name="time" id="time" placeholder="ساعت" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
+                        <input type="text" class="form-control timepicker" name="time" id="time" placeholder="ساعت" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
                         <div class="validate"></div>
                     </div>
                     <div class="col-lg-4 col-md-6 form-group mt-3">

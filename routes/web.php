@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\HomeController::class , 'index'] );
+Route::get('/test', function (){
+    return view('test');
+});
 Route::post('/book' , [\App\Http\Controllers\HomeController::class , 'store']);
 Route::get('/delete/{order}' , [\App\Http\Controllers\BookController::class , 'delete']);
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
 });
+
 
