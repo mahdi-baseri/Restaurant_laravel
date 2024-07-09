@@ -91,7 +91,7 @@
 //                $timestamp = jmktime(10 , 25 , 12 , 11 , 5 , 1400 );
                 $gregorian = jalali_to_gregorian($year, $month , $day , '/');
             ?>
-        <div class="col-md-3 col-lg-2" style="padding: 5px;min-height:max-content !important;">
+        <div class="col-md-3 col-lg-3" style="padding: 15px;min-height:max-content !important;">
             <div class="card offset-md-3" style="margin: 5px; padding: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.22); border-radius: 10px;">
                 <div class="" style="padding: 7px;display: flex; justify-content: space-between; align-items: center;border-bottom: 1px solid rgba(0,0,0,0.17)">
                     <div>
@@ -103,9 +103,9 @@
                         @endif
 
                     </div>
-                    <div>
-                        <img src="storage/avatars/avatar{{$key+1}}.gif" alt="" width="50" height="50"  style="border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.4)">
-                    </div>
+{{--                    <div>--}}
+{{--                        <img src="storage/avatars/avatar{{$key+1}}.gif" alt="" width="50" height="50"  style="border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.4)">--}}
+{{--                    </div>--}}
                 </div>
                 <div class="card-body" style="padding: 7px; color: black">
                     <div>
