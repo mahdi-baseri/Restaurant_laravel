@@ -1,8 +1,9 @@
 /node_modules
 /public/hot
-/public/storage
+#/public/storage
 /storage/*.key
-/vendor
+vendor/*
+!vendor/tcg
 .env
 .env.backup
 .phpunit.result.cache
